@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeScreen} from './screens/HomeScreen';
 import {CartScreen} from './screens/CartScreen';
@@ -13,8 +13,16 @@ import {FavoritesIcon} from './icons/FavoritesIcon';
 function App(): JSX.Element {
   const RootStack = createBottomTabNavigator();
 
+  const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: '#201520',
+    },
+  };
+
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
       <RootStack.Navigator
         initialRouteName="Home"
         screenOptions={{
