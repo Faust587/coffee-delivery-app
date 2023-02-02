@@ -18,6 +18,7 @@ function App(): JSX.Element {
     colors: {
       ...DefaultTheme.colors,
       background: '#201520',
+      border: 'rgb(34, 21, 31)',
     },
   };
 
