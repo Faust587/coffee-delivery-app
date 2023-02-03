@@ -1,12 +1,13 @@
 import React from 'react';
-import Svg, {Path} from 'react-native-svg';
+import Svg, {Circle, Path} from 'react-native-svg';
 
 type TProps = {
   color: string;
   size: number;
+  isNotification: boolean;
 };
 
-export const NotificationIcon = ({color, size}: TProps) => {
+export const NotificationIcon = ({color, size, isNotification}: TProps) => {
   return (
     <Svg width={size} height={size} viewBox="0 0 22 26" fill="none">
       <Path
@@ -17,6 +18,9 @@ export const NotificationIcon = ({color, size}: TProps) => {
         d="M14.9089 22.6354L14.6418 22.6637C13.4229 22.8142 12.196 22.8912 10.9679 22.8943C9.73684 22.8972 8.50692 22.8202 7.28587 22.6637L7.01882 22.6354C6.99343 22.6317 6.96753 22.6344 6.94347 22.6433C6.91941 22.6522 6.89795 22.667 6.88106 22.6863C6.86417 22.7056 6.85237 22.7288 6.84675 22.7539C6.84113 22.7789 6.84186 22.8049 6.84888 22.8296C7.08915 23.7376 7.62303 24.5407 8.36732 25.1137C9.11162 25.6867 10.0245 25.9973 10.9638 25.9973C11.9031 25.9973 12.816 25.6867 13.5603 25.1137C14.3046 24.5407 14.8385 23.7376 15.0788 22.8296C15.0858 22.8049 15.0865 22.7789 15.0809 22.7539C15.0753 22.7288 15.0635 22.7056 15.0466 22.6863C15.0297 22.667 15.0083 22.6522 14.9842 22.6433C14.9601 22.6344 14.9342 22.6317 14.9089 22.6354Z"
         fill={color}
       />
+      {isNotification ? (
+        <Circle cx="19" cy="3.99994" r="4" fill="#C94C4C" />
+      ) : null}
     </Svg>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeScreen} from './screens/HomeScreen';
@@ -12,6 +12,7 @@ import {FavoritesIcon} from './icons/FavoritesIcon';
 
 function App(): JSX.Element {
   const RootStack = createBottomTabNavigator();
+  const [isNotification] = useState(true);
 
   const MyTheme = {
     ...DefaultTheme,
@@ -69,7 +70,11 @@ function App(): JSX.Element {
           component={NotificationScreen}
           options={{
             tabBarIcon: ({color, size}) => (
-              <NotificationIcon color={color} size={size} />
+              <NotificationIcon
+                color={color}
+                size={size}
+                isNotification={isNotification}
+              />
             ),
           }}
         />
